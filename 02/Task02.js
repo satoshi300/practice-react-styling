@@ -7,7 +7,7 @@ import { Row, Col, Button as RBButton } from 'react-bootstrap';
 const theme = {
     buttons: {
         primary: {
-            background: 'blue',
+            background: '#007bff',
             color: 'white',
         },
         secondary: {
@@ -28,16 +28,16 @@ const Task02 = () => {
                 <ThemeProvider theme={theme}>
 
                     <Button variant="primary">Primary</Button>
-                    {/* 
-                    <Button variant="secondary">Secondary</Button>
 
-                    <Button size="sm">Small</Button>
+                    {/* <Button variant="secondary">Secondary</Button> */}
 
-                    <Button size="lg">Large</Button>
+                    {/* <Button size="sm">Small</Button> */}
 
-                    <Button active>Active</Button>
+                    {/* <Button size="lg">Large</Button> */}
 
-                    <Button disabled>Disabled</Button> */}
+                    {/* <Button active>Active</Button> */}
+
+                    {/* <Button disabled>Disabled</Button> */}
                 </ThemeProvider>
             </Col>
         </Row>
