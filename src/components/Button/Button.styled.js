@@ -27,15 +27,14 @@ const defaultSize = {
 }
 
 const getVariant = ({ theme, variant }) =>
-    theme?.buttons?.[variant];
+    theme?.buttons?.[variant] || defaultVariants[variant] || defaultVariants.primary;
 
 const getSize = ({ size }) =>
     defaultSize[size] || defaultSize.md;
 
-const StyledButton = styled.div`
-display: flex;
-justify-content: center;
-width: 100px;
+const StyledButton = styled.button`
+display: inline-block;
+text-align: center;
 border: none;
 border-radius: 4px;
 cursor: pointer;
@@ -44,10 +43,15 @@ background-color:${({ theme, variant }) =>
     color:${({ theme, variant }) =>
         getVariant({ theme, variant }).color};        
     ${({ size }) => {
-        const s = getSize(({ size }));
+        const s = getSize({ size });
         return css`
     padding: ${s.padding};
     font-size: ${s.fontSize};
+    transition: 0.2s ease;
+    
+    &:hover {
+  opacity: 0.9;
+}
     `;
     }}
 

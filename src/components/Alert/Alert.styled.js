@@ -1,11 +1,5 @@
 import styled from 'styled-components';
 
-// const StyledAlert = styled.div`
-//    
-//     background-color: ${props => props.type === 'primary' ? '#c5aeb4' : '#fce2c2'
-//     }
-// `
-
 const StyledAlert = styled.div`
     display: block;
     padding: 12px;
