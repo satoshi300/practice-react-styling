@@ -6,26 +6,42 @@ import {
     TabContent,
 } from './Tabs.styled';
 
-const Tabs = ({ children }) => {
+const Tabs = ({ children, defaultActiveKey }) => {
     const tabsArray = React.Children.toArray(children);
-    const [activeIndex, setActiveIndex] = useState(0);
+
+    const initialKey =
+        defaultActiveKey || tabsArray.find(tab => !tab.props.disabled)?.props.eventKey;
+
+    const [activeKey, setActiveKey] = useState(initialKey);
+
+    const activeTab =
+        tabsArray.find(tab => tab.props.eventKey === activeKey) || tabsArray[0];
+
+    const handleSelect = (eventKey, disabled) => {
+        if (disabled) return;
+        setActiveKey(eventKey);
+    };
 
     return (
         <TabsWrapper>
             <TabsHeader>
-                {tabsArray.map((child, index) => (
+                {tabsArray.map((tab) => (
                     <TabButton
-                        key={index}
-                        active={index === activeIndex}
-                        onClick={() => setActiveIndex(index)}
+                        key={tab.props.eventKey}
+                        type="button"
+                        active={tab.props.eventKey === activeKey}
+                        disabled={tab.props.disabled}
+                        onClick={() =>
+                            handleSelect(tab.props.eventKey, tab.props.disabled)
+                        }
                     >
-                        {child.props.title}
+                        {tab.props.title}
                     </TabButton>
                 ))}
             </TabsHeader>
 
             <TabContent>
-                {tabsArray[activeIndex]}
+                {activeTab}
             </TabContent>
         </TabsWrapper>
     );

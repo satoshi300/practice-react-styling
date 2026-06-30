@@ -20,19 +20,15 @@ const Task04 = () => {
                 </RBTabs>
             </Col>
             <Col>
-                <Tabs>
-                    <Tab title="Home">
-                        <h3>Home</h3>
-                        <p>This is home content.</p>
+                <Tabs defaultActiveKey='profile'>
+                    <Tab eventKey='home' title="Home">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis libero modi quaerat perspiciatis nesciunt pariatur praesentium. Similique ullam facere quod maxime molestias a quis itaque, dolores omnis. Voluptates, itaque iure?</p>
                     </Tab>
+                    <Tab eventKey="profile" title="Profile">
 
-                    <Tab title="Profile">
-                        <h3>Profile</h3>
-                        <p>This is profile content.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque magni quam aspernatur eius dolore quia, veniam accusamus iure sit cumque nulla officiis iste, vel rerum ipsa necessitatibus mollitia quos cupiditate?</p>
                     </Tab>
-
-                    <Tab title="Contact">
-                        <h3>Contact</h3>
+                    <Tab eventKey="contact" title="Contact" disabled>
                         <p>This is contact content.</p>
                     </Tab>
                 </Tabs>

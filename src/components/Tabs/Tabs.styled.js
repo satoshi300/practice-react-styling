@@ -6,29 +6,47 @@ export const TabsWrapper = styled.div`
 
 export const TabsHeader = styled.div`
     display: flex;
-    gap: 8px;
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 16px;
+    align-items: flex-end;
+    border-bottom: 1px solid #dee2e6;
 `;
 
 export const TabButton = styled.button`
-    padding: 10px 16px;
-    border: none;
-    border-bottom: 2px solid
-        ${({ active }) => (active ? '#007bff' : 'transparent')};
+    padding: 8px 16px;
+    margin-bottom: -1px;
+    border: 1px solid transparent;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
     background-color: transparent;
-    color: ${({ active }) => (active ? '#007bff' : '#333')};
-    font-size: 14px;
-    cursor: pointer;
+    color: ${({ disabled, active }) => {
+        if (disabled) return '#6c757d';
+        if (active) return '#495057';
+        return '#0d6efd';
+    }};
 
-    &:hover {
-        color: #007bff;
+    border-color: ${({ active }) =>
+        active ? '#dee2e6 #dee2e6 #fff' : 'transparent'};
+
+     &:hover {
+        border-color: ${({ disabled, active }) => {
+        if (disabled) return 'transparent';
+        if (active) return '#dee2e6 #dee2e6 #fff';
+        return '#e9ecef #e9ecef #dee2e6';
+    }};
+        color: ${({ disabled, active }) => {
+        if (disabled) return '#6c757d';
+        if (active) return '#495057';
+        return '#0a58ca';
+    }};
+    }
+
+    &:focus {
+        outline: none;
     }
 `;
 
 export const TabContent = styled.div`
+    /* border: 1px solid #dee2e6; */
+    border-top: none;
     padding: 16px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
     background-color: #fff;
 `;

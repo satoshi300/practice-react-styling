@@ -42,4 +42,3 @@ export const Image = styled.img`
 
 `
 
-// export { WrapperBody, WrapperCard, Title, Text, Image };
